@@ -56,5 +56,9 @@ dependencies {
   implementation "androidx.camera:camera-camera2:${camerax_version}"
   implementation "androidx.camera:camera-lifecycle:${camerax_version}"
   implementation "androidx.camera:camera-view:${camerax_version}"
+  //retrofit
+  implementation'com.google.code.gson:gson:2.8.9'
+  implementation'com.squareup.retrofit2:retrofit:2.9.0'
+  implementation'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 

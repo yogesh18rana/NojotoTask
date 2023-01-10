@@ -34,7 +34,9 @@ android {
   dataBinding {
     enabled = true
   }
-
+  buildFeatures {
+    viewBinding true
+  }
 }
 
 dependencies {

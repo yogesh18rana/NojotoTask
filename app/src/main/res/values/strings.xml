@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">Camera Application</string>
+  <string name="app_name">ApiApp</string>
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Capture your photo here</string>
   <string name="hello_cart_fragment">See your picture here</string>
@@ -13,4 +13,9 @@
 
   <string name="hello_first_fragment">Hello first fragment</string>
   <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="image_upload_success">Image Uploaded SuccessFul</string>
+  <string name="uploading">Uploading....</string>
+  <string name="title_home">Home</string>
+  <string name="title_dashboard">Dashboard</string>
+  <string name="title_notifications">Notifications</string>
 </resources>

@@ -28,8 +28,8 @@ class DashboardAdapter(private val profile: List<NameProfile>) : RecyclerView.Ad
     holder.showName?.text = profile[position].title
     holder.showTime?.text = profile[position].time
     holder.showDesc?.text = profile[position].desc
-    holder.showLikeCount?.text = profile[position].likeCount
-    holder.showCommentCount?.text = profile[position].commentCount
+//    holder.showLikeCount?.text = profile[position].likeCount
+//    holder.showCommentCount?.text = profile[position].commentCount
   }
 
   override fun getItemCount(): Int {

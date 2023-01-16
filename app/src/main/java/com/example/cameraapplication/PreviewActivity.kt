@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.cameraapplication.databinding.ActivityPreviewBinding
+import com.example.cameraapplication.retrofit.Data
 import com.example.cameraapplication.retrofit.RetrofitHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.MultipartBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
 
 class PreviewActivity : AppCompatActivity() {
@@ -34,10 +38,17 @@ class PreviewActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 val body = RequestBody("", File(uri.path!!), uri.path!!)
                 val a = async {
-                    RetrofitHelper.apiClient.postData(
-                        RequestBody("", File(uri.path!!), uri.path!!),
-                        MultipartBody.Part.createFormData("image", File(uri.path!!).name)
+                   val v= RetrofitHelper.apiClient.postData(
+                        "7ec99b415af3e88205250e3514ce0fa7","media",File(uri.path!!).path
                     )
+                    v.enqueue(object :Callback<Data> {
+                        override fun onResponse(call: Call<Data>, response: Response<Data>) {
+                            println("PreviewActivity.onResponse "+response.body()+" "+response.raw().request().url())
+                        }
+
+                        override fun onFailure(call: Call<Data>, t: Throwable) {
+                        }
+                    })
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@PreviewActivity, "Uploading", Toast.LENGTH_SHORT
